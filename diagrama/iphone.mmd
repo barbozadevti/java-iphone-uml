@@ -1,0 +1,38 @@
+classDiagram
+    direction TB
+
+    class ReprodutorMusical {
+        <<interface>>
+        +tocar() void
+        +pausar() void
+        +selecionarMusica(musica: String) void
+    }
+
+    class AparelhoTelefonico {
+        <<interface>>
+        +ligar(numero: String) void
+        +atender() void
+        +iniciarCorreioVoz() void
+    }
+
+    class NavegadorInternet {
+        <<interface>>
+        +exibirPagina(url: String) void
+        +adicionarNovaAba() void
+        +atualizarPagina() void
+    }
+
+    class IPhone {
+        -musicaAtual: String
+        -tocando: boolean
+        -chamadaEmCurso: String
+        -abas: List~String~
+        -abaAtual: int
+        +isTocando() boolean
+        +getChamadaEmCurso() String
+        +getQuantidadeDeAbas() int
+    }
+
+    ReprodutorMusical <|.. IPhone
+    AparelhoTelefonico <|.. IPhone
+    NavegadorInternet <|.. IPhone
